@@ -868,7 +868,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/c2.dolby.avc.dec.so",
             ],
             shared_libs: [
-                "libstagefright_foundation-v33",
                 "libcodec2_shim",
                 "android.hardware.media.c2@1.0",
                 "libcodec2_hidl@1.0",
@@ -880,7 +879,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "liblog",
                 "libsfplugin_ccodec_utils",
-                "libstagefright_foundation",
+                "libstagefright_foundation-swiitchoff",
                 "c2.dolby.store",
                 "c2.dolby.client",
                 "libstagefright_bufferpool@2.0.1",
@@ -909,7 +908,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/c2.dolby.avc.sec.dec.so",
             ],
             shared_libs: [
-                "libstagefright_foundation-v33",
                 "libcodec2_shim",
                 "android.hardware.media.c2@1.0",
                 "libcodec2_hidl@1.0",
@@ -921,7 +919,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "liblog",
                 "libsfplugin_ccodec_utils",
-                "libstagefright_foundation",
+                "libstagefright_foundation-swiitchoff",
                 "c2.dolby.store",
                 "c2.dolby.client",
                 "libstagefright_bufferpool@2.0.1",
@@ -986,12 +984,14 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/c2.dolby.egl.so",
             ],
             shared_libs: [
+                "libcodec2_shim",
                 "libui",
                 "libGLESv3",
                 "libEGL",
                 "liblog",
                 "libcutils",
-                "libstagefright_foundation",
+                "libstagefright_foundation-swiitchoff",
+                "libnativewindow",
                 "libc++",
                 "libc",
                 "libm",
@@ -1016,7 +1016,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/c2.dolby.hevc.dec.so",
             ],
             shared_libs: [
-                "libstagefright_foundation-v33",
                 "libcodec2_shim",
                 "android.hardware.media.c2@1.0",
                 "libcodec2_hidl@1.0",
@@ -1028,7 +1027,47 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "liblog",
                 "libsfplugin_ccodec_utils",
-                "libstagefright_foundation",
+                "libstagefright_foundation-swiitchoff",
+                "c2.dolby.store",
+                "c2.dolby.client",
+                "libstagefright_bufferpool@2.0.1",
+                "libdolbyvision",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "c2.dolby.hevc.enc",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/c2.dolby.hevc.enc.so",
+            ],
+            shared_libs: [
+                "libcodec2_shim",
+                "android.hardware.media.c2@1.0",
+                "libcodec2_hidl@1.0",
+                "libbase",
+                "libcodec2",
+                "libcodec2_vndk",
+                "libutils",
+                "libcodec2_soft_common",
+                "libcutils",
+                "liblog",
+                "libsfplugin_ccodec_utils",
+                "libstagefright_foundation-swiitchoff",
                 "c2.dolby.store",
                 "c2.dolby.client",
                 "libstagefright_bufferpool@2.0.1",
@@ -1057,7 +1096,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/c2.dolby.hevc.sec.dec.so",
             ],
             shared_libs: [
-                "libstagefright_foundation-v33",
                 "libcodec2_shim",
                 "android.hardware.media.c2@1.0",
                 "libcodec2_hidl@1.0",
@@ -1069,7 +1107,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "liblog",
                 "libsfplugin_ccodec_utils",
-                "libstagefright_foundation",
+                "libstagefright_foundation-swiitchoff",
                 "c2.dolby.store",
                 "c2.dolby.client",
                 "libstagefright_bufferpool@2.0.1",
@@ -1098,6 +1136,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/c2.dolby.store.so",
             ],
             shared_libs: [
+                "libcodec2_shim",
                 "libbase",
                 "libcodec2",
                 "libcodec2_vndk",
@@ -1167,7 +1206,7 @@ cc_prebuilt_library_shared {
                 "libGLESv2",
                 "libui",
                 "libutils",
-                "libstagefright_foundation",
+                "libstagefright_foundation-swiitchoff",
                 "libcutils",
                 "libdolbyottcameracontrol",
                 "libhidlbase",
@@ -1205,6 +1244,7 @@ cc_prebuilt_binary {
                 "libbinder",
                 "libhidlbase",
                 "c2.dolby.store",
+                "libcutils",
                 "libc++",
                 "libc",
                 "libm",
@@ -1218,6 +1258,49 @@ cc_prebuilt_binary {
     },
     prefer: true,
     relative_install_path: "hw",
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libstagefright_foundation-swiitchoff",
+    owner: "xiaomi",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: [
+                "proprietary/vendor/lib/libstagefright_foundation-swiitchoff.so",
+            ],
+            shared_libs: [
+                "libbinder",
+                "libutils",
+                "libcutils",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/lib64/libstagefright_foundation-swiitchoff.so",
+            ],
+            shared_libs: [
+                "libbinder",
+                "libutils",
+                "libcutils",
+                "liblog",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "both",
+    prefer: true,
     soc_specific: true,
 }
 
