@@ -124,9 +124,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libdapparamstorage-dolby \
     libdapparamstorage \
-    libdlbpreg \
     libstagefright_foundation-dolby \
-    libdlbvol \
     libswdap \
     libswgamedap \
     libswvqe \
@@ -142,6 +140,12 @@ PRODUCT_PACKAGES += \
     vendor.dolby.hardware.dms@2.0-impl \
     vendor.dolby.hardware.dms@2.0-service \
     vendor.dolby.media.c2@1.0-service
+
+PRODUCT_PACKAGES += \
+    libdlbpreg \
+    libstagefright_foundation-atmos \
+    libdlbvol \
+    vendor.dolby.hardware.dms@2.0-atmos.so
 
 # Dolby vision Proprietary blobs
 PRODUCT_COPY_FILES += \
