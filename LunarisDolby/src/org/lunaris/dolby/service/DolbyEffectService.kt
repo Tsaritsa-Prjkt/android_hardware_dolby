@@ -34,6 +34,7 @@ class DolbyEffectService : Service() {
     private lateinit var repository: DolbyRepository
     private lateinit var deviceStateManager: DeviceStateManager
     private var previousActiveDevice: AudioDeviceInfo? = null
+    private var hadActivePlayback = false
     private var communicationBypassActive = false
     private var deviceChangePendingDuringCommunication = false
 
@@ -112,7 +113,11 @@ class DolbyEffectService : Service() {
             }
 
             val isActive = configs?.any { it.isActive } == true
-            if (isActive) {
+            val playbackStarted = isActive && !hadActivePlayback
+            hadActivePlayback = isActive
+            if (getCurrentOutputDevice()?.id != previousActiveDevice?.id) {
+                handleDeviceChange()
+            } else if (playbackStarted) {
                 repository.applySavedState()
             }
         }
