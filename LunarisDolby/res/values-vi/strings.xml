@@ -8,6 +8,8 @@
     <!-- Dolby Atmos -->
     <string name="dolby_title">Dolby Atmos</string>
     <string name="dolby_summary">Trải nghiệm âm thanh sống động</string>
+    <string name="dolby_immersive_on">Âm thanh sống động đang bật</string>
+    <string name="dolby_immersive_off">Âm thanh sống động đang tắt</string>
     <string name="dolby_enable">Sử dụng Dolby Atmos</string>
     <string name="dolby_profile_title">Chọn cấu hình</string>
     <string name="dolby_preset">Bộ cân bằng</string>
