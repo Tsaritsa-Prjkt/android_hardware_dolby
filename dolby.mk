@@ -56,10 +56,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.dolby.rc
 
-# Overlays    
-PRODUCT_PACKAGES += \
-    DolbyFrameworksResCommon
-
 # Dolby Spatial Audio: declare use of spatial audio
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
        ro.audio.spatializer_enabled=true \
